@@ -45,7 +45,7 @@ Feel exciting? Okay, here we go!
 ## Contents
 
 - [Start with the Messy Build Process](https://github.com/numbbbbb/read-react-source-code/tree/master)
-- How Render Works
+- [How Render Works](https://github.com/numbbbbb/read-react-source-code/tree/master)
 - How `setState()` Works - part 1
 - How `setState()` Works - part 2
 - How `setState()` Works - part 3
