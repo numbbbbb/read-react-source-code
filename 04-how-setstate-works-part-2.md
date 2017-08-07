@@ -23,31 +23,31 @@ Here we just call `this.setState()` with new value. Let's search `setState` and 
 
 Scroll down a little bit, you can see this.
 
-![](media/14993938325168/14993958821872.jpg)
+![](http://i.imgur.com/L8PiHmZ.jpg)
 
 Double click it.
 
-![](media/14993938325168/14993960811876.jpg)
+![](http://i.imgur.com/ZFbjDqA.jpg)
 
 What's the `updater`?
 
-![](media/14993938325168/14993961540557.jpg)
+![](http://i.imgur.com/iiDcaGz.jpg)
 
 It's a parameter of `ReactComponent()`, injected by other classes. We don't know where it's injected(because we don't have an injection method here for searching), but we can search `enqueueSetState` to see who has that method. There is a `SetState` in that method name, so seems it's not a generic method, maybe only used in `setState()`.
 
-![](media/14993938325168/14993967988502.jpg)
+![](http://i.imgur.com/zdUUW8J.jpg)
 
 Six matches, first is the calling, second is an abstract definition, next three are real definitions of server render, fiber, and stack. Recall that fiber is the new generation, so we go into the last one.
 
-![](media/14993938325168/14993969091178.jpg)
+![](http://i.imgur.com/thLZIrj.jpg)
 
 It pushes partial state(the parameter of `setState()`) into the `_pendingStateQueue` and calls `enqueueUpdate(internalInstance)`.
 
-![](media/14993938325168/14993969856086.jpg)
+![](http://i.imgur.com/K6hoNpB.jpg)
 
 Open `ReactUpdates.js` and search `enqueueUpdate`.
 
-![](media/14993938325168/14993970236335.jpg)
+![](http://i.imgur.com/vx08OI6.jpg)
 
 These two `if` clauses are more complicated than you think.
 
@@ -57,7 +57,7 @@ Let's simulate the execution with different `batchingStrategy.isBatchingUpdates`
 
 Now the first `if` is true, so it calls `batchedUpdates()`. Let's read `batchedUpdates()`(Recall it's inside `ReactDefaultBatchingStrategy.js` and injected to `ReactUpdate`).
 
-![](media/14993938325168/14993972972615.jpg)
+![](http://i.imgur.com/fXXKnIM.jpg)
 
 Here checks whether inside a batching update again. It's false, so we set it to `true`, then wraps and executes it with a transaction.
 
@@ -96,11 +96,11 @@ Recall that we are already inside a batching update now, so when we finish the m
 
 A picture is worth a thousand words.
 
-![](media/14993938325168/14994022677463.jpg)
+![](http://i.imgur.com/E9hCJYJ.jpg)
 
 Above is the `render()` process with `setState()` in `componentDidMount()`.
 
-![](media/14993938325168/14994022992232.jpg)
+![](http://i.imgur.com/xxOuiY7.jpg)
 
 Above is the normal `setState()` process. Normal means not inside some batching update.
 
