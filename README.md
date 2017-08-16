@@ -51,7 +51,7 @@ Feel exciting? Okay, here we go!
 - [How `setState()` Works - part 3](https://github.com/numbbbbb/read-react-source-code/blob/master/05-how-setstate-works-part-3.md)
 - [Events](https://github.com/numbbbbb/read-react-source-code/blob/master/06-event.md)
 - [React vs Vue](https://github.com/numbbbbb/read-react-source-code/blob/master/07-react-vs-vue.md)
-- Conclusion
+- [Conclusion](https://github.com/numbbbbb/read-react-source-code/blob/master/08-conclusion.md)
 
 
 ## License
