@@ -8,7 +8,7 @@ Finally, we come to `flushBatchedUpdates()`. In this article we will:
 - talk about the famous DOM diff
 
 
-## `flushBatchedUpdates()`
+## `flushBatchedUpdates()`
 
 It's in `ReactUpdates.js`.
 
