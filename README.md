@@ -44,8 +44,8 @@ Feel exciting? Okay, here we go!
 
 ## Contents
 
-- [Start with the Messy Build Process](https://github.com/numbbbbb/read-react-source-code/tree/master)
-- [How Render Works](https://github.com/numbbbbb/read-react-source-code/tree/master)
+- [Start with the Messy Build Process]https://github.com/numbbbbb/read-react-source-code/blob/master/01-start-with-the-messy-build-process.md)
+- [How Render Works](https://github.com/numbbbbb/read-react-source-code/blob/master/02-how-render-works.md)
 - [How `setState()` Works - part 1](https://github.com/numbbbbb/read-react-source-code/blob/master/03-how-setstate-works-part-1.md)
 - [How `setState()` Works - part 2](https://github.com/numbbbbb/read-react-source-code/blob/master/04-how-setstate-works-part-2.md)
 - [How `setState()` Works - part 3](https://github.com/numbbbbb/read-react-source-code/blob/master/05-how-setstate-works-part-3.md)
