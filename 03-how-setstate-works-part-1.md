@@ -92,7 +92,7 @@ In the previous article, we have said that Transaction is basically a wrapper. Y
 Transaction has two mainly usages:
 
 1. initialize and cleanup, like a class `destructor()`
-2. put of some operations and execute them during `close()`, `ReactDefaultBatchingStrategy` implements this pattern
+2. put off some operations and execute them during `close()`, `ReactDefaultBatchingStrategy` implements this pattern
 
 Transaction itself is generic, most time you need to custom your own transaction class.
 
