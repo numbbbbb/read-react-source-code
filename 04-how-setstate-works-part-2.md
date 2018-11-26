@@ -102,7 +102,7 @@ Above is the `render()` process with `setState()` in `componentDidMount()`.
 
 ![](http://i.imgur.com/xxOuiY7.jpg)
 
-Above is the normal `setState()` process. Normal means not inside some batching update.
+Above is the normal `setState()` process. Normal means not inside some batching update and the update will be performed immediately. Notice that most time `setState()` will be executed inside some batching transactions, like this demo, it's executed inside the batching transaction performed by `render()`. This makes sure that `setState()` will be batched and not executed immediately.
 
 You may ask, why we need batching update in the second situation? In first situation it exists because we want to put off updates like `setState()`, but in the second situation seems we have no need to push some operations.
 
