@@ -92,6 +92,36 @@ You may ask, so when will that component be updated?
 
 Recall that we are already inside a batching update now, so when we finish the main job(render), it will call `flushBatchedUpdates()` at close time.
 
+## What if we call `setState()` outside `componentDidMount()`?
+
+In [issue#1](https://github.com/numbbbbb/read-react-source-code/issues/1), [@msforest](https://github.com/msforest) pointed out an interesting question: what happened if we call `setState()` outside `componentDidMount()`? For example, inside the onClick event handler.
+
+```
+handleClick () {
+  setState({a: 1})
+  setState({b: 2})
+}
+```
+
+We know that `isBatchingUpdates` is `true` inside `componentDidMount()`, that makes sure all `setState()` are batched and updated at once. We can assume the event handler also performs like that, otherwise, it will updates immediately when you call `setState()` and that's very inefficient. So the question is, where does React set the `isBatchingUpdates` to `true` when we call `setState()` inside event handler?
+
+[@msforest](https://github.com/msforest) found the answer. React binds all events to `document` and creates `SyntheticEvent`for each event and dispatch that. When dispatching:
+
+```
+var ReactEventListener = {
+  dispatchEvent: function (topLevelType, nativeEvent) {
+    ...
+    ReactUpdates.batchedUpdates(handleTopLevelImpl, bookKeeping);
+    ...
+  }
+}
+```
+
+It makes sure all updates are batched.
+
+However, if you call `setState()` neither inside life cycle functions nor inside event handlers, nobody will set `isBatchingUpdates` to `true`, thus the updating will happen immediately. So remember not to do that unless you have a very good reason.
+
+
 ### Picture Time
 
 A picture is worth a thousand words.
